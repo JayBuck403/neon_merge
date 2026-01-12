@@ -1,0 +1,19 @@
+name: Block Firebase Options file
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-file:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for forbidden file
+        run: |
+          if [ -f "lib/firebase_options.dart" ]; then
+            echo "Error: lib/firebase_options.dart exists in the repository. Please remove it and add to .gitignore.";
+            exit 1;
+          fi

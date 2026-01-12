@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Prevent accidental commits of the generated firebase options file
+set -euo pipefail
+
+# Check staged files for the forbidden path
+if git diff --cached --name-only | grep -xq "lib/firebase_options.dart"; then
+  echo "ERROR: lib/firebase_options.dart must not be committed. It's ignored by .gitignore."
+  echo "If you need the file locally, keep it untracked. To proceed anyway, unstage it:"
+  echo "  git reset HEAD -- lib/firebase_options.dart"
+  exit 1
+fi
+
+exit 0

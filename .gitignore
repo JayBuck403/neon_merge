@@ -47,3 +47,7 @@ key.properties
 
 # Ignore locally generated Firebase options file (keep it out of the repo)
 lib/firebase_options.dart
+
+# Google services files (contain platform credentials)
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist

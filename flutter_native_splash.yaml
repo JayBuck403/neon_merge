@@ -1,0 +1,8 @@
+flutter_native_splash:
+  color: "#050507"
+  
+  android: true
+  ios: true
+  web: false
+  
+  fullscreen: true
